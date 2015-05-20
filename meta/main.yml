@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Ian Unruh
+  issue_tracker_url: https://github.com/ianunruh/ansible-role-rabbitmq
+  min_ansible_version: 1.9
+  license: Apache
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+        - precise
+    - name: Debian
+      versions:
+        - wheezy
+  categories:
+    - cloud
+    - database
