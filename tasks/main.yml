@@ -1,16 +1,6 @@
-- name: add apt key
-  apt_key:
-    url: https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-
-- name: add apt repository
-  apt_repository:
-    repo: "deb http://www.rabbitmq.com/debian testing main"
-    update_cache: yes
-
-- name: install rabbitmq
-  apt:
-    pkg: rabbitmq-server
-    state: present
+- include: install.yml
+  tags:
+    - install
 
 - name: configure rabbitmq
   copy:
@@ -18,10 +8,7 @@
     dest: /etc/rabbitmq/rabbitmq.config
   notify:
     - restart rabbitmq
-
-- name: enable management plugin
-  rabbitmq_plugin:
-    names: rabbitmq_management
-    state: enabled
+  tags:
+    - configure
 
 - meta: flush_handlers
