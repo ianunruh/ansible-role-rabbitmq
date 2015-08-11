@@ -1,4 +1,5 @@
 rabbitmq_clustered: false
+rabbitmq_cluster_partition_handling: pause_minority
 rabbitmq_cookie: s3cret
 
 rabbitmq_group: rabbitmq

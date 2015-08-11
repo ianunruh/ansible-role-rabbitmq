@@ -6,6 +6,7 @@
       'rabbit@{{ hostvars[host].ansible_hostname }}'{% if not loop.last %}, {% endif %}
       {%- endfor -%}
     ], disc}},
+    {cluster_partition_handling, {{ rabbitmq_cluster_partition_handling }}},
     {%- endif %}
 
     {loopback_users, []}
