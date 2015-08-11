@@ -1,3 +1,13 @@
-- hosts: default
+- hosts: all
+  serial: 1
+  pre_tasks:
+    - name: ensure host in hostsfile
+      lineinfile:
+        dest: /etc/hosts
+        regexp: ".* {{ item }}$"
+        line: "{{ hostvars[item].ansible_eth1.ipv4.address }} {{ item }}"
+      with_items: groups.rabbitmq
   roles:
     - rabbitmq
+  vars:
+    rabbitmq_clustered: true

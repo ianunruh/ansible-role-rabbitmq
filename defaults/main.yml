@@ -1,0 +1,4 @@
+rabbitmq_clustered: false
+rabbitmq_cookie: s3cret
+
+rabbitmq_group: rabbitmq
