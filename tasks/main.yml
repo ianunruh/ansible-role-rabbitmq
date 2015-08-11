@@ -53,12 +53,3 @@
   tags:
     - rabbitmq
     - rabbitmq-configure
-
-- name: install rabbitmqadmin
-  get_url:
-    url: http://localhost:15672/cli/rabbitmqadmin
-    dest: /usr/local/bin/rabbitmqadmin
-    mode: 0755
-  tags:
-    - rabbitmq
-    - rabbitmq-install

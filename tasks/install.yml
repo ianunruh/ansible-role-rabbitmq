@@ -16,3 +16,9 @@
   rabbitmq_plugin:
     names: rabbitmq_management
     state: enabled
+
+- name: install rabbitmqadmin
+  get_url:
+    url: http://localhost:15672/cli/rabbitmqadmin
+    dest: /usr/local/bin/rabbitmqadmin
+    mode: 0755
