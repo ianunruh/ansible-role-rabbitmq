@@ -1,5 +1,6 @@
 - name: add apt key
   apt_key:
+    id: 056E8E56
     url: https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 
 - name: add apt repository
