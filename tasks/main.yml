@@ -13,15 +13,15 @@
     - rabbitmq
     - rabbitmq-configure
 
-- name: set erlang cookie
-  copy:
-    content: "{{ rabbitmq_cookie }}"
+- name: configure erlang cookie
+  template:
+    src: cookie.j2
     dest: /var/lib/rabbitmq/.erlang.cookie
     owner: rabbitmq
     group: rabbitmq
     mode: 0400
   when: rabbitmq_clustered
-  register: cookie_result
+  register: result
   notify:
     - restart rabbitmq
   tags:
@@ -29,7 +29,7 @@
     - rabbitmq-configure
 
 - include: reset_rabbitmq.yml
-  when: cookie_result|changed
+  when: result|changed
   tags:
     - rabbitmq
     - rabbitmq-configure
